@@ -32,4 +32,12 @@ public class UsrHomeController {
 		count++;
 		return count; 
 	}
+	
+	@RequestMapping("/usr/home/main5") /* 이렇게 url이 들어오면 아래 함수(ShowMain)를 실행한다. */
+	@ResponseBody						/* ShowMain 실행결과를 response 한다. */
+	public String ShowMain5() {
+		count= -1;
+		return "Count의 값이 0으로 초기화"; 
+	}
+	
 }
