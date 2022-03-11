@@ -9,9 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.sbs.exam.demo.vo.Article;
+
+
 
 @Controller /* 스프링에게 이것이 Controller라는걸 알려준다. */
 public class UsrHomeController {
@@ -57,16 +57,16 @@ public class UsrHomeController {
 	@RequestMapping("/usr/home/getArticle")
 	@ResponseBody
 	public Article getArticle() {
-		//Article article = new Article(1234, "어노테이션");
-		Article article = new Article();
+		Article article = new Article(1234, "제목0000", "내용0000");
+		//Article article = new Article();
 		return article;
-	}
+	} 
 	
 	@RequestMapping("/usr/home/getArticles")
 	@ResponseBody
 	public List<Article> getArticles() {
-		Article article1 = new Article(1111, "제목1111");  /* article1 선언해서 Article Class하나 실행해서 넣고 */
-		Article article2 = new Article(2222, "제목2222");  /* article2 선언해서 Article Class하나 실행해서 넣고 */
+		Article article1 = new Article(1111, "제목1111", "내용1111");  /* article1 선언해서 Article Class하나 실행해서 넣고 */
+		Article article2 = new Article(2222, "제목2222", "내용2222");  /* article2 선언해서 Article Class하나 실행해서 넣고 */
 		
 		List<Article> lst = new ArrayList<>();
 		lst.add(article1);
@@ -77,17 +77,6 @@ public class UsrHomeController {
 	
 }
 
-@Data
-@NoArgsConstructor  /* Args가 없는 경우 */
-@AllArgsConstructor /* Args를 직접 입력하게 만듬 */
-class Article{
-	
-	private int id;
-	private String title;
-	
-	
-	
-	
-}
+
 
 
